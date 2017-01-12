@@ -26,7 +26,7 @@ bot.on('message', (payload, reply) => {
     })
   })
 
-  if (!payload.message.attachments || !payload.message.attachments[0] || payload.message.attachments[0].type !== 'image') {
+  if (!payload.message.attachments || !payload.message.attachments[0] || payload.message.attachments[0].type !== 'audio') {
       return reply({
         text: 'That\'s not an audio message. Send me an audio message by pressing the mic button at the bottom of the app.'
       })
