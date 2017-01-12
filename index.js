@@ -14,8 +14,8 @@ bot.on('error', (err) => {
 
 bot.on('message', (payload, reply) => {
   let text = payload.message.text
-  if(payload.message.attachments[0].type !== 'image'){
-    reply({
+  if(payload.message.attachments[0].type == 'image'){
+    return reply({
       text: "Got the image!"
     })
   }
