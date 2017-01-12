@@ -20,15 +20,6 @@ bot.on('message', (payload, reply) => {
       console.log(`Echoed back to ${profile.first_name} ${profile.last_name}: ${text}`)
     })
   }
-  if(payload.message.attachment.type == 'image'){
-    reply({
-      text: "Got the image!"
-    }, (err) => {
-      if (err) throw err
-      console.log(`Echoed back to ${profile.first_name} ${profile.last_name}: ${text}`)
-    }
-    )
-  }
 
 })
 
