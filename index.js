@@ -13,11 +13,21 @@ bot.on('error', (err) => {
 })
 
 bot.on('message', (payload, reply) => {
-  let text = payload.message.text
-  if(payload.message.attachment.type == 'image'){
-    return reply({
-      text: "Got the image!"
+  if(payload.message.text !== null){
+    let text = payload.message.text
+    reply({ text }, (err) => {
+      if (err) throw err
+      console.log(`Echoed back to ${profile.first_name} ${profile.last_name}: ${text}`)
     })
+  }
+  if(payload.message.attachment.type == 'image'){
+    reply({
+      text: "Got the image!"
+    }, (err) => {
+      if (err) throw err
+      console.log(`Echoed back to ${profile.first_name} ${profile.last_name}: ${text}`)
+    }
+    )
   }
 
 })
