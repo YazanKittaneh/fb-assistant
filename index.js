@@ -14,11 +14,22 @@ bot.on('error', (err) => {
 
 bot.on('message', (payload, reply) => {
   let text = payload.message.text
+  let attachment = payload.message.attachment
 
   bot.getProfile(payload.sender.id, (err, profile) => {
     if (err) throw err
 
     reply({ text }, (err) => {
+      if (err) throw err
+
+      console.log(`Echoed back to ${profile.first_name} ${profile.last_name}: ${text}`)
+    })
+  })
+
+  bot.getProfile(payload.sender.id, (err, profile) => {
+    if (err) throw err
+
+    reply({ attachment }, (err) => {
       if (err) throw err
 
       console.log(`Echoed back to ${profile.first_name} ${profile.last_name}: ${text}`)
