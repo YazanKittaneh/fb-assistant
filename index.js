@@ -26,15 +26,12 @@ bot.on('message', (payload, reply) => {
     })
   })
 
-  bot.getProfile(payload.sender.id, (err, profile) => {
-    if (err) throw err
+  if (!payload.message.attachments || !payload.message.attachments[0] || payload.message.attachments[0].type !== 'image') {
+      return reply({
+        text: 'That\'s not an audio message. Send me an audio message by pressing the mic button at the bottom of the app.'
+      })
+  }
 
-    reply({ attachment }, (err) => {
-      if (err) throw err
-
-      console.log(`Echoed back to ${profile.first_name} ${profile.last_name}: ${text}`)
-    })
-  })
 })
 
 
