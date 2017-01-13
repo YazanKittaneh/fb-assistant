@@ -20,14 +20,16 @@ bot.on('message', (payload, reply) => {
       text: "there's nothing written ya know"
     },(err) => {
       if (err) throw err
-    } else {
-      if (text == "fuck"){
-        reply({
-          text: "alright I got the fuck you're giving me"
-        }
-      }
+    })
+  else {
+    if (text == "fuck"){
+      reply({
+        text: "alright I got the fuck you're giving me"
+      })
     }
   }
+})
+
   /*
   if (payload.message.attachments || payload.message.attachments[0] || payload.message.attachments[0].type == 'image') {
       return reply({
@@ -36,7 +38,6 @@ bot.on('message', (payload, reply) => {
   }
   */
 
-});
 
 
 
