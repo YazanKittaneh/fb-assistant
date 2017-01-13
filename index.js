@@ -18,14 +18,12 @@ bot.on('message', (payload, reply) => {
   if (text == null){ //if there isn't any text
     reply({
       text: "there's nothing written ya know"
-      console.log(`Echoed back to: ${text}`)
     },(err) => {
       if (err) throw err
     } else {
       if (text == "fuck"){
         reply({
           text: "alright I got the fuck you're giving me"
-          console.log(`Echoed back to: ${text}`)
         }
       }
     }
