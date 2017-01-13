@@ -21,13 +21,12 @@ bot.on('message', (payload, reply) => {
     },(err) => {
       if (err) throw err
     })
-  else {
-    if (text == "fuck"){
+  }
+  else if (text == "fuck"){
       reply({
         text: "alright I got the fuck you're giving me"
       })
     }
-  }
 })
 
   /*
