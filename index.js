@@ -19,6 +19,11 @@ bot.on('message', (payload, reply) => {
   if (attachment.type == "image") {
     reply({
       text: "Got the image!"
+    },
+    (err) => {
+      return reply({
+        text: 'Sorry. Something went wrong with the image uplaod'
+      })
     })
   }
 
