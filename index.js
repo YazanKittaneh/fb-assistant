@@ -15,24 +15,31 @@ bot.on('error', (err) => {
 bot.on('message', (payload, reply) => {
   let text = payload.message.text
   let attachment = payload.message.attachment
-
-  bot.getProfile(payload.sender.id, (err, profile) => {
-    if (err) throw err
-
-    reply({ text }, (err) => {
-      if (err) throw err
-
+  if (text == null){ //if there isn't any text
+    reply({
+      text: "there's nothing written ya know"
       console.log(`Echoed back to ${profile.first_name} ${profile.last_name}: ${text}`)
-    })
-  })
-
+    },(err) => {
+      if (err) throw err
+    } else {
+      if (text == "fuck"){
+        reply({ 
+          text: "alright I got the fuck you're giving me"
+          console.log(`Echoed back to ${profile.first_name} ${profile.last_name}: ${text}`)
+        }
+      }
+    }
+  }
+  /*
   if (payload.message.attachments || payload.message.attachments[0] || payload.message.attachments[0].type == 'image') {
       return reply({
-        text: 'That\'s not an audio message. Send me an audio message by pressing the mic button at the bottom of the app.'
+        text: "got your image!"
       })
   }
+  */
 
-})
+});
+
 
 
 
