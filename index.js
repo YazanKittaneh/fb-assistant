@@ -14,9 +14,23 @@ bot.on('error', (err) => {
 
 bot.on('message', (payload, reply) => {
   let text = payload.message.text
-  var attachment = payload.message.attachment
+  let attachment = payload.message.attachment
 
-  if (attachment.type == "image") {
+  console.log('Received message from ' + payload.sender.id)
+
+  if (payload.message.attachment == null) {
+    console.log('1) attatchment is null')
+  }
+  if (payload.message.attachments == null) {
+    console.log('2) attatchments is null')
+
+  }
+  if (payload.message.attachments[0] == null) {
+    console.log('3) attatchments[0] is null')
+  }
+
+/*
+  if (payload.message.attachment == "image") {
     reply({
       text: "Got the image!"
     },
@@ -26,6 +40,7 @@ bot.on('message', (payload, reply) => {
       })
     })
   }
+  */
 
   // if I say something like "remind me about blah"
     // I should send you a reminder in 2 hours about the thing (and have a snooze button)
