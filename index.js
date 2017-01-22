@@ -29,6 +29,18 @@ bot.on('message', (payload, reply) => {
     console.log('3) attatchments[0] is null')
   }
 
+  if (text == "Remind me of this soon"){
+    reply({
+      text: "ok I gotchu"
+    })
+
+    setTimeout(function(){
+      reply({
+        text: "I told yo bitchass"
+      })
+    },3000);
+
+  }
 /*
   if (payload.message.attachment == "image") {
     reply({
