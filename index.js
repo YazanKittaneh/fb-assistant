@@ -15,6 +15,19 @@ bot.on('error', (err) => {
 bot.on('message', (payload, reply) => {
   let text = payload.message.text
   let attachment = payload.message.attachment
+  if (text == null){ //if there isn't any text
+    reply({
+      text: "there's nothing written ya know"
+    },(err) => {
+      if (err) throw err
+    })
+  }
+  if (text == "fuck"){
+    reply({
+      text: "alright I got the fuck you're giving me"
+    })
+  }
+})
 /*
   if (payload.message.attachment == "image") {
     reply({
@@ -41,13 +54,6 @@ bot.on('message', (payload, reply) => {
     // grab the most recent event with that name and move it to my desire
 
   //
-
-  if (text){
-    reply({
-      text: "alright I got the fuck you're giving me"
-    })
-  }
-})
 
   /*
   if (payload.message.attachments || payload.message.attachments[0] || payload.message.attachments[0].type == 'image') {
