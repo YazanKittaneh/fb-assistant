@@ -15,18 +15,32 @@ bot.on('error', (err) => {
 bot.on('message', (payload, reply) => {
   let text = payload.message.text
   let attachment = payload.message.attachment
-  if (text == null){ //if there isn't any text
-    reply({
-      text: "there's nothing written ya know"
-    },(err) => {
-      if (err) throw err
-    })
+
+  console.log('Received message from ' + payload.sender.id)
+
+  if (payload.message.attachment == null) {
+    console.log('1) attatchment is null')
   }
-  if (text == "fuck"){
-    reply({
-      text: "alright I got the fuck you're giving me"
-    })
+  if (payload.message.attachments == null) {
+    console.log('2) attatchments is null')
+
   }
+  if (payload.message.attachments[0] == null) {
+    console.log('3) attatchments[0] is null')
+  }
+
+  if (text == "Remind me of this soon"){
+    reply({
+      text: "ok I gotchu"
+    })
+
+    setTimeout(function(){
+      reply({
+        text: "I told yo bitchass"
+      })
+    },3000);
+
+
 })
 /*
   if (payload.message.attachment == "image") {
