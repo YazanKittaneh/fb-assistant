@@ -25,17 +25,20 @@ bot.on('message', (payload, reply) => {
     console.log('2) attatchments is null')
   }
 
-  if (text[0] == "Remind"){
-    reply({
-      text: "ok I gotchu"
-    })
+  if (text !== null){
+    var splitString = text.split('~');
 
-    setTimeout(function(){
+    if(splitString[0] == "Remind"){
       reply({
-        text: "I told yo bitchass"
+        text: "ok I gotchu"
       })
-    },3000)
 
+      setTimeout(function(){
+        reply({
+          text: "I told yo bitchass"
+        })
+      },3000)
+    }
   }
 
 
