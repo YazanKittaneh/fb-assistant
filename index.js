@@ -23,10 +23,9 @@ bot.on('message', (payload, reply) => {
   }
   if (payload.message.attachments == null) {
     console.log('2) attatchments is null')
-
   }
 
-  if (text == "Remind me of this soon"){
+  if (text[0] == "Remind"){
     reply({
       text: "ok I gotchu"
     })
