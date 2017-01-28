@@ -38,7 +38,9 @@ bot.on('message', (payload, reply) => {
       reply({
         text: "I told yo bitchass"
       })
-    },3000);
+    },3000)
+
+  }
 
 
 })
