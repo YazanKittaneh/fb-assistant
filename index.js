@@ -40,7 +40,7 @@ bot.on('message', (payload, reply) => {
     console.log('2) attatchments is null')
   }
 
-  if (text !== null){
+  if (text != null){
     var splitString = text.split('~');
 
     if(splitString[0] == "Remind" &&
