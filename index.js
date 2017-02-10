@@ -42,7 +42,7 @@ bot.on('message', (payload, reply) => {
 
   if (text != null){
     console.log(' 1 - got your message')
-    var splitString = text.split('~');
+    var splitString = text.split(' ');
 
     if(splitString[0] == "Remind" &&
     splitString[1] == "me" &&
