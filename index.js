@@ -14,8 +14,9 @@ function getMinutes(minutes){
 function parseStringUntil(sentence, starting){
   var parsedStrings;
   var length = sentence.length();
+  var i;
 
-  for(int i=starting; i<= length; i++){
+  for(i=starting; i<= length; i++){
       parsedStrings.push(sentence[i]);
   }
 
