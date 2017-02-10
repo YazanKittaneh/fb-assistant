@@ -7,6 +7,20 @@ let bot = new Bot({
   verify: 'VERIFY',
 })
 
+function getMinutes(minutes){
+  return minutes * 1000000;
+}
+
+function parseStringUntil(sentence, starting){
+  var parsedStrings;
+  var length = sentence.length();
+
+  for(int i=starting; i<= length; i++){
+      parsedStrings.push(sentence[i]);
+  }
+
+  return parsedStrings;
+}
 
 bot.on('error', (err) => {
   console.log(err.message)
@@ -28,16 +42,21 @@ bot.on('message', (payload, reply) => {
   if (text !== null){
     var splitString = text.split('~');
 
-    if(splitString[0] == "Remind"){
+    if(splitString[0] == "Remind" &&
+    splitString[1] == "me" &&
+    splitString[2] == "to"){ //command is to "Remind me to"
+
+      var cmd = parseStringUntilEnd(splitString, 3);
+
       reply({
-        text: "ok I gotchu"
+        text: "Will do!"
       })
 
       setTimeout(function(){
         reply({
-          text: "I told yo bitchass"
+          text: cmd
         })
-      },3000)
+      },getMinutes(1))
     }
   }
 
