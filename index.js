@@ -19,7 +19,7 @@ function parseStringUntil(sentence, starting){
   for(i=starting; i<= length; i++){
       parsedStrings.push(sentence[i]);
   }
-
+  console.log(' 3 - split your message')
   return parsedStrings;
 }
 
@@ -41,11 +41,13 @@ bot.on('message', (payload, reply) => {
   }
 
   if (text != null){
+    console.log(' 1 - got your message')
     var splitString = text.split('~');
 
     if(splitString[0] == "Remind" &&
     splitString[1] == "me" &&
     splitString[2] == "to"){ //command is to "Remind me to"
+    console.log(' 2 - read your message')
 
       var cmd = parseStringUntilEnd(splitString, 3);
 
@@ -54,6 +56,7 @@ bot.on('message', (payload, reply) => {
       })
 
       setTimeout(function(){
+        console.log(' 4 - timeouted your message')
         reply({
           text: cmd
         })
