@@ -13,10 +13,10 @@ function getMinutes(minutes){
 
 function parseStringUntilEnd(sentence, starting){
   var parsedStrings;
-  var length = sentence.length();
+  var length = sentence.length;
   var i;
 
-  for(i=starting; i<= length; i++){
+  for(i=starting; i<length; i++){
       parsedStrings.push(sentence[i]);
   }
   console.log(' 3 - split your message')
