@@ -11,7 +11,7 @@ function getMinutes(minutes){
   return minutes * 1000000;
 }
 
-function parseStringUntil(sentence, starting){
+function parseStringUntilEnd(sentence, starting){
   var parsedStrings;
   var length = sentence.length();
   var i;
